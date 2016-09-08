@@ -78,7 +78,7 @@ module.exports = class ArtworkAuctionView extends Backbone.View
         width: '500px',
         mode: 'register'
         copy: 'Sign up to bid'
-        destination: form.action()
+        redirectTo: form.action()
 
     return unless form.isReady()
 
@@ -107,7 +107,7 @@ module.exports = class ArtworkAuctionView extends Backbone.View
       query: """
         query artwork($id: String!, $sale_id: String!) {
           me {
-            bidder_status(artwork_id: $id, sale_id: $sale_id) {
+            lot_standing(artwork_id: $id, sale_id: $sale_id) {
               is_highest_bidder
               most_recent_bid {
                 max_bid {
